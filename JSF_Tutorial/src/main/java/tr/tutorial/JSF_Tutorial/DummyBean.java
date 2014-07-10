@@ -1,3 +1,4 @@
+/*hp_tr*/
 package tr.tutorial.JSF_Tutorial;
 
 public class DummyBean {
