@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+ <h:head>    <h:outputStylesheet library="css" name="style.css" /></h:head>
+    <h:body>
+    	<h1>JSF 2.0 h:outputText Example</h1>
+    	<ol>
+    	   <li>#{user.text}</li>
+ 
+ 	   <li><h:outputText value="#{user.text}" /></li>
+ 
+	   <li><h:outputText value="#{user.text}" styleClass="abc" /></li>
+ 
+	   <li><h:outputText value="#{user.htmlInput}" /></li>
+ 
+	   <li><h:outputText value="#{user.htmlInput}" escape="false" /></li>
+	 </ol>
+	  <h1>JSF 2.0 h:outputFormat Example</h1>
+	 <ol>
+    	<li>
+    	  <h:outputFormat value="this is param 0 : {0}, param 1 : {1}" >
+ 		<f:param value="Number 1" />
+ 		<f:param value="Number 2" />
+ 	  </h:outputFormat>
+ 	</li>
+ 	<li>
+ 	  <h:outputFormat value="#{user.text}" >
+ 		<f:param value="mkyong" />
+ 	  </h:outputFormat>
+ 	</li>
+	<li>
+	  <h:outputFormat value="#{user.htmlInput}" >
+ 		<f:param value="text" />
+ 		<f:param value="size='30'" />
+ 	  </h:outputFormat>
+	 </li>
+	 <li>
+	  <h:outputFormat value="#{user.htmlInput}" escape="false" >
+ 		<f:param value="text" />
+ 		<f:param value="size='30'" />
+ 	  </h:outputFormat>
+	 </li>
+	 <li>
+	  <h:outputFormat value="#{user.htmlInput}" escape="false" >
+ 		<f:param value="button" />
+ 		<f:param value="value='Click Me'" />
+ 	  </h:outputFormat>
+	 </li>
+       </ol>
+       <h1>JSF 2 GraphicImage Example</h1>
+       <h:graphicImage value="/resources/images/indir.jpg" />
+       <h:graphicImage library="images" name="indir.jpg" />
+        <h1>JSF 2 outputStylesheet example</h1>
+
+    	
+    	<div class="red">This is red color</div>
+    </h:body>
+   
+</html>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>tr.tutorial</groupId>
+    <artifactId>JSF_Tutorial</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>JSF_Tutorial</name>
+
+    <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+    <dependencies>
+       <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+ 	<dependency>
+ 		<groupId>com.sun.faces</groupId>
+ 		<artifactId>jsf-api</artifactId>
+ 		<version>2.2.4</version>
+ 	</dependency>
+ 	<dependency>
+ 		<groupId>com.sun.faces</groupId>
+ 		<artifactId>jsf-impl</artifactId>
+ 		<version>2.2.4</version>
+ 	</dependency>
+ 	<dependency>
+ 		<groupId>javax.servlet</groupId>
+ 		<artifactId>jstl</artifactId>
+ 		<version>1.2</version>
+ 	</dependency>
+ 	<dependency>
+ 		<groupId>javax.servlet</groupId>
+ 		<artifactId>servlet-api</artifactId>
+ 		<version>3.0-alpha-1</version>
+ 	</dependency>
+ 	<dependency>
+ 		<groupId>javax.servlet.jsp</groupId>
+ 		<artifactId>jsp-api</artifactId>
+ 		<version>2.2.1-b03</version>
+ 	</dependency>
+ 	<dependency>
+ 		<groupId>org.glassfish.web</groupId>
+ 		<artifactId>el-impl</artifactId>
+ 		<version>2.2.1-b05</version>
+ 	</dependency>
+ 	<dependency>
+ 		<groupId>commons-validator</groupId>
+ 		<artifactId>commons-validator</artifactId>
+ 		<version>1.1.0</version>
+ 	</dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+             <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+       	 	<configuration>
+       	  		<source>1.7</source>
+       	   		<target>1.7</target>
+        	</configuration>
+    	  </plugin>
+    	  <plugin>
+    <groupId>org.glassfish.maven.plugin</groupId>
+    <artifactId>maven-glassfish-plugin</artifactId>
+    <version>2.1</version>
+    <configuration>
+        <glassfishDirectory>${local.glassfish.home}</glassfishDirectory>
+        <user>${local.glassfish.user}</user>
+        <passwordFile>${local.glassfish.passfile}</passwordFile>
+        <autoCreate>true</autoCreate>
+        <debug>true</debug>
+        <echo>false</echo>
+		<domain>
+            <name>${local.glassfish.domain}</name>
+            <adminPort>4848</adminPort>
+            <httpPort>8080</httpPort>
+            <httpsPort>8181</httpsPort>
+            <iiopPort>3700</iiopPort>
+            <jmsPort>7676</jmsPort>
+            <reuse>false</reuse>
+            
+        </domain>
+        <components>
+            <component>
+                <name>${project.artifactId}</name>
+                <artifact>
+                    ${project.build.directory}\${project.artifactId}.war
+                </artifact>
+            </component>
+        </components>
+    </configuration>
+    <executions>
+                   <execution>
+                        <id>undeploy</id>
+                        <goals>
+                            <goal>undeploy</goal>
+                        </goals>
+                        <phase>clean</phase>
+                    </execution>
+                     <execution>
+                                <id>redeploy</id>
+                                    <goals>
+                                        <goal>redeploy</goal>
+                                    </goals>
+                                <phase>package</phase>
+                    </execution>
+</executions>
+</plugin>
+    	  <plugin>
+    	  	<groupId>org.apache.maven.plugins</groupId>
+    	  	<artifactId>maven-war-plugin</artifactId>
+    	  	<version>2.4</version>
+    	  	<configuration>
+    	  	
+    	  	<warName>${project.artifactId}</warName>
+    	  	</configuration>
+    	  </plugin>
+    	 <plugin>
+  <groupId>com.soebes.maven.plugins</groupId>
+  <artifactId>maven-echo-plugin</artifactId>
+  <version>0.1</version>
+  <executions>
+    <execution>
+      <phase>install</phase>
+      <goals>
+        <goal>echo</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <echos>
+      <echo>http://localhost:8080/${project.artifactId}</echo>
+    </echos>
+  </configuration>
+</plugin>
+
+        </plugins>
+    </build>
+
+</project>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13879042221672" configfile="/JSF_Tutorial/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="tutorial/3/page1.xhtml" x="122" y="178" id="pf13880127181030" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13880127181041" path="/tutorial/3/page1.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="tutorial/3/page2.xhtml" x="338" y="178" id="pf13880127181042" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13880127181041" path="/tutorial/3/page2.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="tutorial/4/start.xhtml" x="122" y="946" id="pf13880134717663" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13880134717664 pf13880139466166 pf13880139466167" path="/tutorial/4/start.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="tutorial/4/payment.xhtml" x="338" y="562" id="pf13880134717665" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" inlinks="pf13880134717664" path="/tutorial/4/payment.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="tutorial/4/ordermore.xhtml" x="338" y="946" id="pf13880139466168" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13880139466166" path="/tutorial/4/ordermore.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="tutorial/4/register.xhtml" x="338" y="1330" id="pf13880139466169" referenceLink="//@navigationRule.1/@navigationCase.2/@toViewId|" inlinks="pf13880139466167" path="/tutorial/4/register.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="tutorial/5/start.xhtml" x="122" y="1906" id="pf138801420380310" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf138801420380311 pf138801420380312" path="/tutorial/5/start.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="tutorial/5/page1.xhtml" x="338" y="1714" id="pf138801420380313" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf138801420380311" path="/tutorial/5/page1.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="tutorial/5/page2.xhtml" x="338" y="2098" id="pf138801420380314" referenceLink="//@navigationRule.2/@navigationCase.1/@toViewId|" inlinks="pf138801420380312" path="/tutorial/5/page2.xhtml"/>
+  <links id="pf13880127181041" target="pf13880127181042" source="pf13880127181030" outcome="page2"/>
+  <links id="pf13880134717664" target="pf13880134717665" source="pf13880134717663" outcome="payment"/>
+  <links id="pf13880139466166" target="pf13880139466168" source="pf13880134717663" outcome="payment"/>
+  <links id="pf13880139466167" target="pf13880139466169" source="pf13880134717663" outcome="payment"/>
+  <links id="pf138801420380311" target="pf138801420380313" source="pf138801420380310" outcome="success" fromaction="#{PageController.processPage1}"/>
+  <links id="pf138801420380312" target="pf138801420380314" source="pf138801420380310" outcome="success" redirect="true" fromaction="#{PageController.processPage2}"/>
+</pageflow:Pageflow>
